@@ -61,14 +61,21 @@
       "relation": "oneToOne",
       "target": "api::city.city"
     },
-    "position": {
+    "latitude": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "customField",
-      "customField": "plugin::location-field.location"
+      "type": "float"
+    },
+    "longitude": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "float"
     }
   }
 }

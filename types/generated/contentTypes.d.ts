@@ -811,8 +811,13 @@ export interface ApiCityCity extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    position: Attribute.JSON &
-      Attribute.CustomField<'plugin::location-field.location'> &
+    latitude: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    longitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -945,8 +950,13 @@ export interface ApiLocationLocation extends Schema.CollectionType {
       'oneToOne',
       'api::city.city'
     >;
-    position: Attribute.JSON &
-      Attribute.CustomField<'plugin::location-field.location'> &
+    latitude: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    longitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1065,8 +1075,13 @@ export interface ApiPoiPoi extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    position: Attribute.JSON &
-      Attribute.CustomField<'plugin::location-field.location'> &
+    latitude: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    longitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
