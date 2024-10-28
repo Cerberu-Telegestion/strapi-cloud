@@ -101,6 +101,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::city.city"
+    },
+    "external_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::access-instruction.access-instruction",
+      "mappedBy": "hotel_external_id"
     }
   }
 }

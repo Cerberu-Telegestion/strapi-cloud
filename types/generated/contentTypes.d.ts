@@ -788,6 +788,59 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAccessInstructionAccessInstruction
+  extends Schema.CollectionType {
+  collectionName: 'access_instructions';
+  info: {
+    singularName: 'access-instruction';
+    pluralName: 'access-instructions';
+    displayName: 'AccessInstruction';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    hotel_external_id: Attribute.Relation<
+      'api::access-instruction.access-instruction',
+      'oneToOne',
+      'api::hotel.hotel'
+    >;
+    text: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::access-instruction.access-instruction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::access-instruction.access-instruction',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::access-instruction.access-instruction',
+      'oneToMany',
+      'api::access-instruction.access-instruction'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCityCity extends Schema.CollectionType {
   collectionName: 'cities';
   info: {
@@ -971,6 +1024,11 @@ export interface ApiHotelHotel extends Schema.CollectionType {
         };
       }>;
     city: Attribute.Relation<'api::hotel.hotel', 'oneToOne', 'api::city.city'>;
+    external_id: Attribute.Relation<
+      'api::hotel.hotel',
+      'oneToOne',
+      'api::access-instruction.access-instruction'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1075,6 +1133,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::access-instruction.access-instruction': ApiAccessInstructionAccessInstruction;
       'api::city.city': ApiCityCity;
       'api::event.event': ApiEventEvent;
       'api::hotel.hotel': ApiHotelHotel;
