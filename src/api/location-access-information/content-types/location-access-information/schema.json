@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "access_instructions",
+  "collectionName": "location_access_informations",
   "info": {
-    "singularName": "access-instruction",
-    "pluralName": "access-instructions",
-    "displayName": "AccessInstruction",
+    "singularName": "location-access-information",
+    "pluralName": "location-access-informations",
+    "displayName": "LocationAccessInformation",
     "description": ""
   },
   "options": {
@@ -16,12 +16,6 @@
     }
   },
   "attributes": {
-    "hotel_external_id": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::hotel.hotel",
-      "inversedBy": "external_id"
-    },
     "text": {
       "pluginOptions": {
         "i18n": {
@@ -29,6 +23,11 @@
         }
       },
       "type": "richtext"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
     }
   }
 }
