@@ -27,7 +27,7 @@
     "latitude": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "float"
@@ -35,7 +35,7 @@
     "longitude": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "float"

@@ -814,13 +814,13 @@ export interface ApiCityCity extends Schema.CollectionType {
     latitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     longitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -924,7 +924,7 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     externalId: Attribute.BigInteger &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     description: Attribute.RichText &
@@ -936,13 +936,13 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     address: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     postalCode: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     city: Attribute.Relation<
@@ -953,13 +953,13 @@ export interface ApiLocationLocation extends Schema.CollectionType {
     latitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     longitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1078,13 +1078,13 @@ export interface ApiPoiPoi extends Schema.CollectionType {
     latitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     longitude: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
