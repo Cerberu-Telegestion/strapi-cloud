@@ -888,6 +888,11 @@
     intl-messageformat "10.3.4"
     tslib "^2.4.0"
 
+"@googlemaps/js-api-loader@^1.15.1":
+  version "1.16.8"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.16.8.tgz#1595a2af80ca07e551fc961d921a2437d1cb3643"
+  integrity sha512-CROqqwfKotdO6EBjZO/gQGVTbeDps5V7Mt9+8+5Q+jTg5CRMi3Ii/L9PmV3USROrt2uWxtGzJHORmByxyo9pSQ==
+
 "@graphql-tools/merge@8.3.1":
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/merge/-/merge-8.3.1.tgz#06121942ad28982a14635dbc87b5d488a041d722"
@@ -9560,6 +9565,13 @@ statuses@2.0.1, statuses@^2.0.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
+
+strapi-location-field-plugin@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/strapi-location-field-plugin/-/strapi-location-field-plugin-1.2.3.tgz#751e530ac7a742c0c55d2fb17596712104dea1cb"
+  integrity sha512-Eq5Llf2ZGUa+jETRr10Pvg+865uORe4kyw4tCyVf/8AACZD3NkqJ0Sgm5ue58fbCsNOXGXYhI07gYkawYdDNsw==
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.15.1"
 
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"

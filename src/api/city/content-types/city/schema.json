@@ -24,21 +24,14 @@
       },
       "type": "string"
     },
-    "latitude": {
+    "position": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "float"
-    },
-    "longitude": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "float"
+      "type": "customField",
+      "customField": "plugin::location-field.location"
     }
   }
 }
