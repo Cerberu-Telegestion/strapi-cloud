@@ -1126,6 +1126,59 @@ export interface ApiPoiPoi extends Schema.CollectionType {
   };
 }
 
+export interface ApiServiceTermsVersionServiceTermsVersion
+  extends Schema.CollectionType {
+  collectionName: 'service_terms_versions';
+  info: {
+    singularName: 'service-terms-version';
+    pluralName: 'service-terms-versions';
+    displayName: 'ServiceTermsVersion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    version: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    terms: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service-terms-version.service-terms-version',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service-terms-version.service-terms-version',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::service-terms-version.service-terms-version',
+      'oneToMany',
+      'api::service-terms-version.service-terms-version'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1149,6 +1202,7 @@ declare module '@strapi/types' {
       'api::location.location': ApiLocationLocation;
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
       'api::poi.poi': ApiPoiPoi;
+      'api::service-terms-version.service-terms-version': ApiServiceTermsVersionServiceTermsVersion;
     }
   }
 }
