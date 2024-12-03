@@ -844,7 +844,8 @@ export interface ApiDocumentDocument extends Schema.CollectionType {
   info: {
     singularName: 'document';
     pluralName: 'documents';
-    displayName: 'document';
+    displayName: 'Document';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -865,6 +866,12 @@ export interface ApiDocumentDocument extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
+        };
+      }>;
+    version: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -990,6 +997,11 @@ export interface ApiLocationLocation extends Schema.CollectionType {
       'oneToOne',
       'api::city.city'
     >;
+    location_rules_document_type: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'api::location-rules-document-type.location-rules-document-type'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1085,12 +1097,102 @@ export interface ApiLocationAccessInformationLocationAccessInformation
   };
 }
 
+export interface ApiLocationRulesDocumentLocationRulesDocument
+  extends Schema.CollectionType {
+  collectionName: 'location_rules_documents';
+  info: {
+    singularName: 'location-rules-document';
+    pluralName: 'location-rules-documents';
+    displayName: 'LocationRulesDocument';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    version: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    location_rules_document_type: Attribute.Relation<
+      'api::location-rules-document.location-rules-document',
+      'oneToOne',
+      'api::location-rules-document-type.location-rules-document-type'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location-rules-document.location-rules-document',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location-rules-document.location-rules-document',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::location-rules-document.location-rules-document',
+      'oneToMany',
+      'api::location-rules-document.location-rules-document'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiLocationRulesDocumentTypeLocationRulesDocumentType
+  extends Schema.CollectionType {
+  collectionName: 'location_rules_document_types';
+  info: {
+    singularName: 'location-rules-document-type';
+    pluralName: 'location-rules-document-types';
+    displayName: 'LocationRulesDocumentType';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Type: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location-rules-document-type.location-rules-document-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location-rules-document-type.location-rules-document-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPoiPoi extends Schema.CollectionType {
   collectionName: 'pois';
   info: {
     singularName: 'poi';
     pluralName: 'pois';
-    displayName: 'poi';
+    displayName: 'Poi';
     description: '';
   };
   options: {
@@ -1224,6 +1326,8 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::location.location': ApiLocationLocation;
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
+      'api::location-rules-document.location-rules-document': ApiLocationRulesDocumentLocationRulesDocument;
+      'api::location-rules-document-type.location-rules-document-type': ApiLocationRulesDocumentTypeLocationRulesDocumentType;
       'api::poi.poi': ApiPoiPoi;
       'api::service-terms-version.service-terms-version': ApiServiceTermsVersionServiceTermsVersion;
     }

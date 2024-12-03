@@ -44,6 +44,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::city.city"
+    },
+    "location_rules_document_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location-rules-document-type.location-rules-document-type"
     }
   }
 }
