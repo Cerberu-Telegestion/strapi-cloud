@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "location_rules_document_types",
+  "info": {
+    "singularName": "location-rules-document-type",
+    "pluralName": "location-rules-document-types",
+    "displayName": "LocationRulesDocumentType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Type": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

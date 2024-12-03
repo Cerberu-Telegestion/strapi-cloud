@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "location_rules_documents",
+  "info": {
+    "singularName": "location-rules-document",
+    "pluralName": "location-rules-documents",
+    "displayName": "LocationRulesDocument",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    },
+    "version": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
+    },
+    "location_rules_document_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location-rules-document-type.location-rules-document-type"
+    }
+  }
+}
