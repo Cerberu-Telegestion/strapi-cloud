@@ -49,6 +49,29 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location-rules-document-type.location-rules-document-type"
+    },
+    "rooms_description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
