@@ -1211,6 +1211,71 @@ export interface ApiLocationRulesDocumentTypeLocationRulesDocumentType
   };
 }
 
+export interface ApiLongStayLocationLongStayLocation
+  extends Schema.CollectionType {
+  collectionName: 'long_stay_locations';
+  info: {
+    singularName: 'long-stay-location';
+    pluralName: 'long-stay-locations';
+    displayName: 'LongStayLocation';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    slug: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::long-stay-location.long-stay-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::long-stay-location.long-stay-location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLongStayZoneLongStayZone extends Schema.CollectionType {
+  collectionName: 'long_stay_zones';
+  info: {
+    singularName: 'long-stay-zone';
+    pluralName: 'long-stay-zones';
+    displayName: 'LongStayZone';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    long_stay_location: Attribute.Relation<
+      'api::long-stay-zone.long-stay-zone',
+      'oneToOne',
+      'api::long-stay-location.long-stay-location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::long-stay-zone.long-stay-zone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::long-stay-zone.long-stay-zone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPoiPoi extends Schema.CollectionType {
   collectionName: 'pois';
   info: {
@@ -1299,6 +1364,8 @@ declare module '@strapi/types' {
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
       'api::location-rules-document.location-rules-document': ApiLocationRulesDocumentLocationRulesDocument;
       'api::location-rules-document-type.location-rules-document-type': ApiLocationRulesDocumentTypeLocationRulesDocumentType;
+      'api::long-stay-location.long-stay-location': ApiLongStayLocationLongStayLocation;
+      'api::long-stay-zone.long-stay-zone': ApiLongStayZoneLongStayZone;
       'api::poi.poi': ApiPoiPoi;
     }
   }

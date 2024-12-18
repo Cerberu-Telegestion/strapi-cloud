@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "long_stay_zones",
+  "info": {
+    "singularName": "long-stay-zone",
+    "pluralName": "long-stay-zones",
+    "displayName": "LongStayZone"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "long_stay_location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::long-stay-location.long-stay-location"
+    }
+  }
+}
