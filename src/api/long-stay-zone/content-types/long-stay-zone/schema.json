@@ -4,7 +4,8 @@
   "info": {
     "singularName": "long-stay-zone",
     "pluralName": "long-stay-zones",
-    "displayName": "LongStayZone"
+    "displayName": "LongStayZone",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -18,6 +19,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::long-stay-location.long-stay-location"
+    },
+    "externalId": {
+      "type": "string",
+      "unique": true
     }
   }
 }

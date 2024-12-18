@@ -1248,6 +1248,7 @@ export interface ApiLongStayZoneLongStayZone extends Schema.CollectionType {
     singularName: 'long-stay-zone';
     pluralName: 'long-stay-zones';
     displayName: 'LongStayZone';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1259,6 +1260,7 @@ export interface ApiLongStayZoneLongStayZone extends Schema.CollectionType {
       'oneToOne',
       'api::long-stay-location.long-stay-location'
     >;
+    externalId: Attribute.String & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
