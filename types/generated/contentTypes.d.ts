@@ -1020,6 +1020,11 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    location_external: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'api::location-external.location-external'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1097,6 +1102,11 @@ export interface ApiLocationAccessInformationLocationAccessInformation
           localized: false;
         };
       }>;
+    location_external: Attribute.Relation<
+      'api::location-access-information.location-access-information',
+      'oneToOne',
+      'api::location-external.location-external'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1118,6 +1128,38 @@ export interface ApiLocationAccessInformationLocationAccessInformation
       'api::location-access-information.location-access-information'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiLocationExternalLocationExternal
+  extends Schema.CollectionType {
+  collectionName: 'location_externals';
+  info: {
+    singularName: 'location-external';
+    pluralName: 'location-externals';
+    displayName: 'LocationExternal';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Unique;
+    externalId: Attribute.BigInteger & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location-external.location-external',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location-external.location-external',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1364,6 +1406,7 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::location.location': ApiLocationLocation;
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
+      'api::location-external.location-external': ApiLocationExternalLocationExternal;
       'api::location-rules-document.location-rules-document': ApiLocationRulesDocumentLocationRulesDocument;
       'api::location-rules-document-type.location-rules-document-type': ApiLocationRulesDocumentTypeLocationRulesDocumentType;
       'api::long-stay-location.long-stay-location': ApiLongStayLocationLongStayLocation;

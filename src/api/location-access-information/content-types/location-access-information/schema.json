@@ -83,6 +83,11 @@
           "localized": false
         }
       }
+    },
+    "location_external": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location-external.location-external"
     }
   }
 }
