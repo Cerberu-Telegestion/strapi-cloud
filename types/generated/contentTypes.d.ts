@@ -1133,38 +1133,6 @@ export interface ApiLocationAccessInformationLocationAccessInformation
   };
 }
 
-export interface ApiLocationExternalLocationExternal
-  extends Schema.CollectionType {
-  collectionName: 'location_externals';
-  info: {
-    singularName: 'location-external';
-    pluralName: 'location-externals';
-    displayName: 'LocationExternal';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Unique;
-    externalId: Attribute.BigInteger & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::location-external.location-external',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::location-external.location-external',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiLocationRulesDocumentLocationRulesDocument
   extends Schema.CollectionType {
   collectionName: 'location_rules_documents';
@@ -1322,6 +1290,63 @@ export interface ApiLongStayZoneLongStayZone extends Schema.CollectionType {
   };
 }
 
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::page.page',
+      'oneToMany',
+      'api::page.page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPoiPoi extends Schema.CollectionType {
   collectionName: 'pois';
   info: {
@@ -1414,11 +1439,11 @@ declare module '@strapi/types' {
       'api::event.event': ApiEventEvent;
       'api::location.location': ApiLocationLocation;
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
-      'api::location-external.location-external': ApiLocationExternalLocationExternal;
       'api::location-rules-document.location-rules-document': ApiLocationRulesDocumentLocationRulesDocument;
       'api::location-rules-document-type.location-rules-document-type': ApiLocationRulesDocumentTypeLocationRulesDocumentType;
       'api::long-stay-location.long-stay-location': ApiLongStayLocationLongStayLocation;
       'api::long-stay-zone.long-stay-zone': ApiLongStayZoneLongStayZone;
+      'api::page.page': ApiPagePage;
       'api::poi.poi': ApiPoiPoi;
     }
   }
