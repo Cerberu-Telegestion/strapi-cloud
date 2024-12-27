@@ -829,6 +829,12 @@ export interface ApiCityCity extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1020,11 +1026,6 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    location_external: Attribute.Relation<
-      'api::location.location',
-      'oneToOne',
-      'api::location-external.location-external'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1102,11 +1103,6 @@ export interface ApiLocationAccessInformationLocationAccessInformation
           localized: false;
         };
       }>;
-    location_external: Attribute.Relation<
-      'api::location-access-information.location-access-information',
-      'oneToOne',
-      'api::location-external.location-external'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1366,6 +1362,12 @@ export interface ApiPoiPoi extends Schema.CollectionType {
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     createdAt: Attribute.DateTime;
