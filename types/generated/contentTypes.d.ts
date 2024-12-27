@@ -832,7 +832,7 @@ export interface ApiCityCity extends Schema.CollectionType {
     images: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     slug: Attribute.String &
@@ -1373,7 +1373,7 @@ export interface ApiPoiPoi extends Schema.CollectionType {
     images: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
