@@ -73,6 +73,14 @@
           "localized": false
         }
       }
+    },
+    "directbookId": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }
