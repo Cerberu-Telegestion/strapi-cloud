@@ -1044,6 +1044,18 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    features: Attribute.Component<'shared.location-feature', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    video: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_shared_location_features",
+  "info": {
+    "displayName": "LocationFeature"
+  },
+  "options": {},
+  "attributes": {
+    "parking": {
+      "type": "boolean",
+      "default": false
+    },
+    "breakfast": {
+      "type": "boolean",
+      "default": false
+    },
+    "wifi": {
+      "type": "boolean",
+      "default": true
+    },
+    "petfriendly": {
+      "type": "boolean",
+      "default": false
+    },
+    "quite": {
+      "type": "boolean",
+      "default": false
+    },
+    "center": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
