@@ -841,6 +841,12 @@ export interface ApiCityCity extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1051,6 +1057,12 @@ export interface ApiLocationLocation extends Schema.CollectionType {
         };
       }>;
     video: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    order: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

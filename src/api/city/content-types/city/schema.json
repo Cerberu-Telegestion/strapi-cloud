@@ -72,6 +72,14 @@
       },
       "type": "string",
       "unique": false
+    },
+    "order": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
     }
   }
 }
