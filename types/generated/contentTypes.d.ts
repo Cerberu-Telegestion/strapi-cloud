@@ -1271,43 +1271,310 @@ export interface ApiLocationRulesDocumentTypeLocationRulesDocumentType
   };
 }
 
-export interface ApiLongStayLocationLongStayLocation
+export interface ApiLongStaysLocationLongStaysLocation
   extends Schema.CollectionType {
-  collectionName: 'long_stay_locations';
+  collectionName: 'long_stays_locations';
   info: {
-    singularName: 'long-stay-location';
-    pluralName: 'long-stay-locations';
-    displayName: 'LongStayLocation';
+    singularName: 'long-stays-location';
+    pluralName: 'long-stays-locations';
+    displayName: 'LongStaysLocation';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    name: Attribute.String & Attribute.Required & Attribute.Unique;
-    slug: Attribute.String;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    latitude: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    longitude: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    neighborhood: Attribute.Relation<
+      'api::long-stays-location.long-stays-location',
+      'oneToOne',
+      'api::neighborhood.neighborhood'
+    >;
+    address: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    postalCode: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    transportInformation: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    photos: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    features: Attribute.Component<'shared.long-stays-location-feature', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::long-stay-location.long-stay-location',
+      'api::long-stays-location.long-stays-location',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::long-stay-location.long-stay-location',
+      'api::long-stays-location.long-stays-location',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::long-stays-location.long-stays-location',
+      'oneToMany',
+      'api::long-stays-location.long-stays-location'
+    >;
+    locale: Attribute.String;
   };
 }
 
-export interface ApiLongStayZoneLongStayZone extends Schema.CollectionType {
-  collectionName: 'long_stay_zones';
+export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
+  collectionName: 'long_stays_zones';
   info: {
-    singularName: 'long-stay-zone';
-    pluralName: 'long-stay-zones';
-    displayName: 'LongStayZone';
+    singularName: 'long-stays-zone';
+    pluralName: 'long-stays-zones';
+    displayName: 'LongStaysZone';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    externalId: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    photos: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    photo360: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    floorPlan: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    long_stays_location: Attribute.Relation<
+      'api::long-stays-zone.long-stays-zone',
+      'oneToOne',
+      'api::long-stays-location.long-stays-location'
+    >;
+    euroPerMonth: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    flexibleCancellation: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    allIncluded: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    parking: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    storageRoom: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    petFriendly: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    exterior: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    tv: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
+    commonAreas: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    closetNumber: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<0>;
+    tablesNumber: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<0>;
+    windowsNumber: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<0>;
+    bathroomsNumber: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<0>;
+    roomsNumber: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<1>;
+    minimumMonthsNumber: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<3>;
+    depositMonthsNumber: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<1>;
+    area: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::long-stays-zone.long-stays-zone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::long-stays-zone.long-stays-zone',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::long-stays-zone.long-stays-zone',
+      'oneToMany',
+      'api::long-stays-zone.long-stays-zone'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiNeighborhoodNeighborhood extends Schema.CollectionType {
+  collectionName: 'neighborhoods';
+  info: {
+    singularName: 'neighborhood';
+    pluralName: 'neighborhoods';
+    displayName: 'Neighborhood';
     description: '';
   };
   options: {
@@ -1315,22 +1582,23 @@ export interface ApiLongStayZoneLongStayZone extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    long_stay_location: Attribute.Relation<
-      'api::long-stay-zone.long-stay-zone',
+    city: Attribute.Relation<
+      'api::neighborhood.neighborhood',
       'oneToOne',
-      'api::long-stay-location.long-stay-location'
+      'api::city.city'
     >;
-    externalId: Attribute.String & Attribute.Unique;
+    latutude: Attribute.Float;
+    longitude: Attribute.Float;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::long-stay-zone.long-stay-zone',
+      'api::neighborhood.neighborhood',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::long-stay-zone.long-stay-zone',
+      'api::neighborhood.neighborhood',
       'oneToOne',
       'admin::user'
     > &
@@ -1489,8 +1757,9 @@ declare module '@strapi/types' {
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
       'api::location-rules-document.location-rules-document': ApiLocationRulesDocumentLocationRulesDocument;
       'api::location-rules-document-type.location-rules-document-type': ApiLocationRulesDocumentTypeLocationRulesDocumentType;
-      'api::long-stay-location.long-stay-location': ApiLongStayLocationLongStayLocation;
-      'api::long-stay-zone.long-stay-zone': ApiLongStayZoneLongStayZone;
+      'api::long-stays-location.long-stays-location': ApiLongStaysLocationLongStaysLocation;
+      'api::long-stays-zone.long-stays-zone': ApiLongStaysZoneLongStaysZone;
+      'api::neighborhood.neighborhood': ApiNeighborhoodNeighborhood;
       'api::page.page': ApiPagePage;
       'api::poi.poi': ApiPoiPoi;
     }

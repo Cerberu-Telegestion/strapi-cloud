@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_long_stays_zone_features",
+  "info": {
+    "displayName": "LongStaysZoneFeatures"
+  },
+  "options": {},
+  "attributes": {
+    "privateBathroom": {
+      "type": "boolean",
+      "default": true
+    },
+    "ovenMicrowave": {
+      "type": "boolean",
+      "default": true
+    },
+    "kitchen": {
+      "type": "boolean",
+      "default": true
+    },
+    "privateGarden": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
