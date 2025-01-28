@@ -1194,6 +1194,12 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    extraInfo: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
