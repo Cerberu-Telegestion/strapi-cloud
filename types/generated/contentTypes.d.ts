@@ -1737,6 +1737,12 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    video: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
