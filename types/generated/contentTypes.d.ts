@@ -1517,7 +1517,7 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
     externalId: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     photos: Attribute.Media &
@@ -1541,7 +1541,7 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
     floorPlan: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     long_stays_location: Attribute.Relation<
@@ -1552,7 +1552,7 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
     euroPerMonth: Attribute.Float &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     flexibleCancellation: Attribute.Boolean &
