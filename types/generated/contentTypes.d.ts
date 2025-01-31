@@ -1703,7 +1703,7 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<0>;
-    bathroomsNumber: Attribute.Integer &
+    bathroomsNumber: Attribute.Decimal &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

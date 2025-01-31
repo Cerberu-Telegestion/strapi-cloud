@@ -197,7 +197,7 @@
           "localized": false
         }
       },
-      "type": "integer",
+      "type": "decimal",
       "default": 0
     },
     "roomsNumber": {
