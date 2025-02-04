@@ -164,33 +164,6 @@
       "type": "boolean",
       "default": false
     },
-    "closetNumber": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "default": 0
-    },
-    "tablesNumber": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "default": 0
-    },
-    "windowsNumber": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "default": 0
-    },
     "bathroomsNumber": {
       "pluginOptions": {
         "i18n": {
@@ -236,11 +209,12 @@
       "type": "float"
     },
     "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "videos"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false

@@ -1589,6 +1589,13 @@ export interface ApiLongStaysLocationLongStaysLocation
         };
       }> &
       Attribute.DefaultTo<false>;
+    elevator: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1732,27 +1739,6 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
-    closetNumber: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<0>;
-    tablesNumber: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<0>;
-    windowsNumber: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.DefaultTo<0>;
     bathroomsNumber: Attribute.Decimal &
       Attribute.SetPluginOptions<{
         i18n: {
