@@ -19,12 +19,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::city.city"
-    },
-    "latutude": {
-      "type": "float"
-    },
-    "longitude": {
-      "type": "float"
     }
   }
 }

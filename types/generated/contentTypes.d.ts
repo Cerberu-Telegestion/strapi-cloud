@@ -1820,8 +1820,6 @@ export interface ApiNeighborhoodNeighborhood extends Schema.CollectionType {
       'oneToOne',
       'api::city.city'
     >;
-    latutude: Attribute.Float;
-    longitude: Attribute.Float;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1965,6 +1963,43 @@ export interface ApiPoiPoi extends Schema.CollectionType {
   };
 }
 
+export interface ApiTestimonialTestimonial extends Schema.CollectionType {
+  collectionName: 'testimonials';
+  info: {
+    singularName: 'testimonial';
+    pluralName: 'testimonials';
+    displayName: 'Testimonial';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    headline: Attribute.String;
+    content: Attribute.RichText;
+    location: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'api::location.location'
+    >;
+    lead: Attribute.String;
+    photo: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::testimonial.testimonial',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1998,6 +2033,7 @@ declare module '@strapi/types' {
       'api::neighborhood.neighborhood': ApiNeighborhoodNeighborhood;
       'api::page.page': ApiPagePage;
       'api::poi.poi': ApiPoiPoi;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }
 }
