@@ -788,6 +788,70 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAdBannerAdBanner extends Schema.CollectionType {
+  collectionName: 'ad_banners';
+  info: {
+    singularName: 'ad-banner';
+    pluralName: 'ad-banners';
+    displayName: 'AdBanner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    startDate: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    endDate: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    urlPattern: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ad-banner.ad-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ad-banner.ad-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::ad-banner.ad-banner',
+      'oneToMany',
+      'api::ad-banner.ad-banner'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiBlogArticleBlogArticle extends Schema.CollectionType {
   collectionName: 'blog_articles';
   info: {
@@ -2032,6 +2096,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::ad-banner.ad-banner': ApiAdBannerAdBanner;
       'api::blog-article.blog-article': ApiBlogArticleBlogArticle;
       'api::blog-tag.blog-tag': ApiBlogTagBlogTag;
       'api::city.city': ApiCityCity;
