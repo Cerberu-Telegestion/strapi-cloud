@@ -54,16 +54,17 @@
     },
     "blog_tags": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::blog-tag.blog-tag",
-      "mappedBy": "blog_article"
+      "mappedBy": "blog_articles"
     },
     "header": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": false

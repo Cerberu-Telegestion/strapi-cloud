@@ -14,9 +14,9 @@
     "slug": {
       "type": "string"
     },
-    "blog_article": {
+    "blog_articles": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::blog-article.blog-article",
       "inversedBy": "blog_tags"
     }

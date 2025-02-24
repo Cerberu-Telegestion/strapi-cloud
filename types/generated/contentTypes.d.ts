@@ -899,7 +899,7 @@ export interface ApiBlogArticleBlogArticle extends Schema.CollectionType {
       }>;
     blog_tags: Attribute.Relation<
       'api::blog-article.blog-article',
-      'oneToMany',
+      'manyToMany',
       'api::blog-tag.blog-tag'
     >;
     header: Attribute.Media &
@@ -944,9 +944,9 @@ export interface ApiBlogTagBlogTag extends Schema.CollectionType {
   };
   attributes: {
     slug: Attribute.String;
-    blog_article: Attribute.Relation<
+    blog_articles: Attribute.Relation<
       'api::blog-tag.blog-tag',
-      'manyToOne',
+      'manyToMany',
       'api::blog-article.blog-article'
     >;
     createdAt: Attribute.DateTime;
