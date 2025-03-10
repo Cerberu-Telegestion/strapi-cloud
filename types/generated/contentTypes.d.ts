@@ -1142,6 +1142,12 @@ export interface ApiEventEvent extends Schema.CollectionType {
         };
       }>;
     poi: Attribute.Relation<'api::event.event', 'oneToOne', 'api::poi.poi'>;
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
