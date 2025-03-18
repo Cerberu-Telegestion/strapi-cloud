@@ -201,6 +201,14 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "order": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }

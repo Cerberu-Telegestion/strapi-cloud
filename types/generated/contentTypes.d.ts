@@ -794,6 +794,7 @@ export interface ApiAdBannerAdBanner extends Schema.CollectionType {
     singularName: 'ad-banner';
     pluralName: 'ad-banners';
     displayName: 'AdBanner';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -823,6 +824,18 @@ export interface ApiAdBannerAdBanner extends Schema.CollectionType {
         };
       }>;
     urlPattern: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    headline: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    backgroundImage: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1684,6 +1697,12 @@ export interface ApiLongStaysLocationLongStaysLocation
         };
       }> &
       Attribute.DefaultTo<false>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
