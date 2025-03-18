@@ -1700,7 +1700,7 @@ export interface ApiLongStaysLocationLongStaysLocation
     order: Attribute.Integer &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1900,6 +1900,12 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<false>;
+    order: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
