@@ -246,6 +246,22 @@
         }
       },
       "type": "integer"
+    },
+    "sharedBathroom": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean"
+    },
+    "doubleBed": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean"
     }
   }
 }

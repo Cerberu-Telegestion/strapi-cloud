@@ -1906,6 +1906,18 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    sharedBathroom: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    doubleBed: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
