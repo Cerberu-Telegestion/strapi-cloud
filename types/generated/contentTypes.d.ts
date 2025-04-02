@@ -2108,6 +2108,7 @@ export interface ApiReportReport extends Schema.CollectionType {
     singularName: 'report';
     pluralName: 'reports';
     displayName: 'Report';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -2118,6 +2119,7 @@ export interface ApiReportReport extends Schema.CollectionType {
     reportType: Attribute.String;
     externalId: Attribute.String;
     date: Attribute.String;
+    downloadLink: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
