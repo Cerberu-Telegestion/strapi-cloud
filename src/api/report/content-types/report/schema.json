@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "singularName": "report",
+    "pluralName": "reports",
+    "displayName": "Report"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pdf": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "reportType": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    }
+  }
+}

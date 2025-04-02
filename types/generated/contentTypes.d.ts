@@ -2102,6 +2102,39 @@ export interface ApiPoiPoi extends Schema.CollectionType {
   };
 }
 
+export interface ApiReportReport extends Schema.CollectionType {
+  collectionName: 'reports';
+  info: {
+    singularName: 'report';
+    pluralName: 'reports';
+    displayName: 'Report';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    pdf: Attribute.String;
+    image: Attribute.String;
+    reportType: Attribute.String;
+    externalId: Attribute.String;
+    date: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::report.report',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::report.report',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   collectionName: 'testimonials';
   info: {
@@ -2173,6 +2206,7 @@ declare module '@strapi/types' {
       'api::neighborhood.neighborhood': ApiNeighborhoodNeighborhood;
       'api::page.page': ApiPagePage;
       'api::poi.poi': ApiPoiPoi;
+      'api::report.report': ApiReportReport;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
   }
