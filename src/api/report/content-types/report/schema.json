@@ -28,7 +28,7 @@
       "type": "string"
     },
     "downloadLink": {
-      "type": "string"
+      "type": "text"
     }
   }
 }

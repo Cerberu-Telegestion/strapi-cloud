@@ -2119,7 +2119,7 @@ export interface ApiReportReport extends Schema.CollectionType {
     reportType: Attribute.String;
     externalId: Attribute.String;
     date: Attribute.String;
-    downloadLink: Attribute.String;
+    downloadLink: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
