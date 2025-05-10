@@ -1918,6 +1918,13 @@ export interface ApiLongStaysZoneLongStaysZone extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    disabled: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
