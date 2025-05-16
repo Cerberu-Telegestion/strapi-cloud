@@ -1559,6 +1559,7 @@ export interface ApiLockerLocker extends Schema.CollectionType {
     singularName: 'locker';
     pluralName: 'lockers';
     displayName: 'Locker';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1597,7 +1598,7 @@ export interface ApiLockerLocker extends Schema.CollectionType {
       'oneToOne',
       'api::location.location'
     >;
-    description: Attribute.Text &
+    description: Attribute.RichText &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
