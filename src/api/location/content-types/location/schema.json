@@ -168,6 +168,11 @@
         }
       },
       "type": "string"
+    },
+    "locker": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::locker.locker"
     }
   }
 }

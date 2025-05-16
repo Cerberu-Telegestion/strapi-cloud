@@ -1357,6 +1357,11 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    locker: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'api::locker.locker'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
