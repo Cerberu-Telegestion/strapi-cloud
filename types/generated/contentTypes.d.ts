@@ -1548,6 +1548,79 @@ export interface ApiLocationRulesDocumentTypeLocationRulesDocumentType
   };
 }
 
+export interface ApiLockerLocker extends Schema.CollectionType {
+  collectionName: 'lockers';
+  info: {
+    singularName: 'locker';
+    pluralName: 'lockers';
+    displayName: 'Locker';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    latitude: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    longitude: Attribute.Float &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    city: Attribute.Relation<
+      'api::locker.locker',
+      'oneToOne',
+      'api::city.city'
+    >;
+    location: Attribute.Relation<
+      'api::locker.locker',
+      'oneToOne',
+      'api::location.location'
+    >;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::locker.locker',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::locker.locker',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::locker.locker',
+      'oneToMany',
+      'api::locker.locker'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiLongStaysLocationLongStaysLocation
   extends Schema.CollectionType {
   collectionName: 'long_stays_locations';
@@ -2216,6 +2289,7 @@ declare module '@strapi/types' {
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
       'api::location-rules-document.location-rules-document': ApiLocationRulesDocumentLocationRulesDocument;
       'api::location-rules-document-type.location-rules-document-type': ApiLocationRulesDocumentTypeLocationRulesDocumentType;
+      'api::locker.locker': ApiLockerLocker;
       'api::long-stays-location.long-stays-location': ApiLongStaysLocationLongStaysLocation;
       'api::long-stays-zone.long-stays-zone': ApiLongStaysZoneLongStaysZone;
       'api::neighborhood.neighborhood': ApiNeighborhoodNeighborhood;
