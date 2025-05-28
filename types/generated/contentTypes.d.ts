@@ -1357,11 +1357,6 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    locker: Attribute.Relation<
-      'api::location.location',
-      'oneToOne',
-      'api::locker.locker'
-    >;
     Category: Attribute.Enumeration<['basic', 'essentials', 'signature']> &
       Attribute.SetPluginOptions<{
         i18n: {
