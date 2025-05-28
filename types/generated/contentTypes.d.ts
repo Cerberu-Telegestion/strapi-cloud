@@ -1362,6 +1362,13 @@ export interface ApiLocationLocation extends Schema.CollectionType {
       'oneToOne',
       'api::locker.locker'
     >;
+    Category: Attribute.Enumeration<['basic', 'essentials', 'signature']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'basic'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

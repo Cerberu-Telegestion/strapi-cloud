@@ -173,6 +173,20 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::locker.locker"
+    },
+    "Category": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "basic",
+        "essentials",
+        "signature"
+      ],
+      "default": "basic"
     }
   }
 }
