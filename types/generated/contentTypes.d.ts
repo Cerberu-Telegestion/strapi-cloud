@@ -1364,6 +1364,12 @@ export interface ApiLocationLocation extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<'basic'>;
+    googleAnalyticsId: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

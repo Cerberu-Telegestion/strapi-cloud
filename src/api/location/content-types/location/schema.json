@@ -182,6 +182,14 @@
         "signature"
       ],
       "default": "basic"
+    },
+    "googleAnalyticsId": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }
