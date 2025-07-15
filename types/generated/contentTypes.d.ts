@@ -2206,6 +2206,70 @@ export interface ApiPoiPoi extends Schema.CollectionType {
   };
 }
 
+export interface ApiPressReleasePressRelease extends Schema.CollectionType {
+  collectionName: 'press_releases';
+  info: {
+    singularName: 'press-release';
+    pluralName: 'press-releases';
+    displayName: 'PressRelease';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    link: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    date: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::press-release.press-release',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::press-release.press-release',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::press-release.press-release',
+      'oneToMany',
+      'api::press-release.press-release'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiReportReport extends Schema.CollectionType {
   collectionName: 'reports';
   info: {
@@ -2313,6 +2377,7 @@ declare module '@strapi/types' {
       'api::neighborhood.neighborhood': ApiNeighborhoodNeighborhood;
       'api::page.page': ApiPagePage;
       'api::poi.poi': ApiPoiPoi;
+      'api::press-release.press-release': ApiPressReleasePressRelease;
       'api::report.report': ApiReportReport;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }
