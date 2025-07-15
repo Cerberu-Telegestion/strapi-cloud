@@ -70,6 +70,19 @@
           "localized": false
         }
       }
+    },
+    "web": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "gaiarooms",
+        "gaiastays",
+        "all"
+      ]
     }
   }
 }

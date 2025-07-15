@@ -921,6 +921,12 @@ export interface ApiBlogArticleBlogArticle extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    web: Attribute.Enumeration<['gaiarooms', 'gaiastays', 'all']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -963,7 +969,6 @@ export interface ApiBlogTagBlogTag extends Schema.CollectionType {
       'manyToMany',
       'api::blog-article.blog-article'
     >;
-    web: Attribute.Enumeration<['gaiarooms', 'gaiastays']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

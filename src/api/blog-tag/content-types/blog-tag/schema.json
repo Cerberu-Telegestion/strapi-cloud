@@ -20,13 +20,6 @@
       "relation": "manyToMany",
       "target": "api::blog-article.blog-article",
       "inversedBy": "blog_tags"
-    },
-    "web": {
-      "type": "enumeration",
-      "enum": [
-        "gaiarooms",
-        "gaiastays"
-      ]
     }
   }
 }
