@@ -4,7 +4,8 @@
   "info": {
     "singularName": "blog-tag",
     "pluralName": "blog-tags",
-    "displayName": "BlogTag"
+    "displayName": "BlogTag",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -19,6 +20,13 @@
       "relation": "manyToMany",
       "target": "api::blog-article.blog-article",
       "inversedBy": "blog_tags"
+    },
+    "web": {
+      "type": "enumeration",
+      "enum": [
+        "gaiarooms",
+        "gaiastays"
+      ]
     }
   }
 }

@@ -951,6 +951,7 @@ export interface ApiBlogTagBlogTag extends Schema.CollectionType {
     singularName: 'blog-tag';
     pluralName: 'blog-tags';
     displayName: 'BlogTag';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -962,6 +963,7 @@ export interface ApiBlogTagBlogTag extends Schema.CollectionType {
       'manyToMany',
       'api::blog-article.blog-article'
     >;
+    web: Attribute.Enumeration<['gaiarooms', 'gaiastays']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1219,7 +1221,9 @@ export interface ApiFaqFaq extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    type: Attribute.Enumeration<['owner', 'about', 'checkin', 'hotel']> &
+    type: Attribute.Enumeration<
+      ['owner', 'about', 'checkin', 'hotel', 'gaiarooms', 'gaiastays']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

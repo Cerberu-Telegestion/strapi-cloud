@@ -43,7 +43,9 @@
         "owner",
         "about",
         "checkin",
-        "hotel"
+        "hotel",
+        "gaiarooms",
+        "gaiastays"
       ]
     }
   }
