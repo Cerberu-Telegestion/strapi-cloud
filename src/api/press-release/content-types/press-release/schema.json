@@ -4,7 +4,8 @@
   "info": {
     "singularName": "press-release",
     "pluralName": "press-releases",
-    "displayName": "PressRelease"
+    "displayName": "PressRelease",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -46,6 +47,20 @@
         }
       },
       "type": "date"
+    },
+    "web": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "gaiarooms",
+        "gaiastays",
+        "all"
+      ],
+      "default": "all"
     }
   }
 }

@@ -2217,6 +2217,7 @@ export interface ApiPressReleasePressRelease extends Schema.CollectionType {
     singularName: 'press-release';
     pluralName: 'press-releases';
     displayName: 'PressRelease';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -2251,6 +2252,13 @@ export interface ApiPressReleasePressRelease extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    web: Attribute.Enumeration<['gaiarooms', 'gaiastays', 'all']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'all'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
