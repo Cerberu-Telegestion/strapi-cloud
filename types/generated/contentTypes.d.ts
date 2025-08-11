@@ -1051,6 +1051,11 @@ export interface ApiCityCity extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    region: Attribute.Relation<
+      'api::city.city',
+      'oneToOne',
+      'api::region.region'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2283,6 +2288,37 @@ export interface ApiPressReleasePressRelease extends Schema.CollectionType {
   };
 }
 
+export interface ApiRegionRegion extends Schema.CollectionType {
+  collectionName: 'regions';
+  info: {
+    singularName: 'region';
+    pluralName: 'regions';
+    displayName: 'Region';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    slug: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::region.region',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::region.region',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiReportReport extends Schema.CollectionType {
   collectionName: 'reports';
   info: {
@@ -2391,6 +2427,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::poi.poi': ApiPoiPoi;
       'api::press-release.press-release': ApiPressReleasePressRelease;
+      'api::region.region': ApiRegionRegion;
       'api::report.report': ApiReportReport;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
     }

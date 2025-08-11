@@ -88,6 +88,11 @@
         }
       },
       "type": "string"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::region.region"
     }
   }
 }
