@@ -190,6 +190,14 @@
         }
       },
       "type": "string"
+    },
+    "googlePlaceId": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }
