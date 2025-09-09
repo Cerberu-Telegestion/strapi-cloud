@@ -1390,6 +1390,12 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    siteminderUuid: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
