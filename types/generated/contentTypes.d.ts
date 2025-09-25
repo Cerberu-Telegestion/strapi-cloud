@@ -1056,12 +1056,11 @@ export interface ApiCityCity extends Schema.CollectionType {
       'oneToOne',
       'api::region.region'
     >;
-    podcast: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+    podcast: Attribute.Relation<
+      'api::city.city',
+      'oneToOne',
+      'api::podcast.podcast'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2165,6 +2164,71 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiPodcastPodcast extends Schema.CollectionType {
+  collectionName: 'podcasts';
+  info: {
+    singularName: 'podcast';
+    pluralName: 'podcasts';
+    displayName: 'Podcast';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    spotify: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    apple: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ivoox: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::podcast.podcast',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::podcast.podcast',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::podcast.podcast',
+      'oneToMany',
+      'api::podcast.podcast'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPoiPoi extends Schema.CollectionType {
   collectionName: 'pois';
   info: {
@@ -2443,6 +2507,7 @@ declare module '@strapi/types' {
       'api::long-stays-zone.long-stays-zone': ApiLongStaysZoneLongStaysZone;
       'api::neighborhood.neighborhood': ApiNeighborhoodNeighborhood;
       'api::page.page': ApiPagePage;
+      'api::podcast.podcast': ApiPodcastPodcast;
       'api::poi.poi': ApiPoiPoi;
       'api::press-release.press-release': ApiPressReleasePressRelease;
       'api::region.region': ApiRegionRegion;

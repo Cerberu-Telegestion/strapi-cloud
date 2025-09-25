@@ -95,12 +95,9 @@
       "target": "api::region.region"
     },
     "podcast": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "text"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::podcast.podcast"
     }
   }
 }
