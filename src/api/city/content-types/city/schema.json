@@ -93,6 +93,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::region.region"
+    },
+    "podcast": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "text"
     }
   }
 }
