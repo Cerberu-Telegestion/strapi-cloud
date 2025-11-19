@@ -1239,6 +1239,11 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
     >;
     category: Attribute.Enumeration<['basic', 'essentials', 'signature']>;
     slug: Attribute.String & Attribute.Required;
+    location: Attribute.Relation<
+      'api::experience.experience',
+      'manyToMany',
+      'api::location.location'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1552,6 +1557,11 @@ export interface ApiLocationLocation extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    experience: Attribute.Relation<
+      'api::location.location',
+      'manyToMany',
+      'api::experience.experience'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
