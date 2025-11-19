@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiences",
+  "info": {
+    "singularName": "experience",
+    "pluralName": "experiences",
+    "displayName": "Experience",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "brand": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "latitute": {
+      "type": "float"
+    },
+    "longitude": {
+      "type": "float"
+    },
+    "web": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::city.city"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "experience_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::experience-tag.experience-tag",
+      "mappedBy": "experience"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "basic",
+        "essentials",
+        "signature"
+      ]
+    }
+  }
+}

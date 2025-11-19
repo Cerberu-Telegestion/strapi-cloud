@@ -1207,6 +1207,150 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
+export interface ApiExperienceExperience extends Schema.CollectionType {
+  collectionName: 'experiences';
+  info: {
+    singularName: 'experience';
+    pluralName: 'experiences';
+    displayName: 'Experience';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    brand: Attribute.Media & Attribute.Required;
+    images: Attribute.Media;
+    latitute: Attribute.Float;
+    longitude: Attribute.Float;
+    web: Attribute.String;
+    address: Attribute.String;
+    city: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'api::city.city'
+    >;
+    phone: Attribute.String;
+    experience_tags: Attribute.Relation<
+      'api::experience.experience',
+      'oneToMany',
+      'api::experience-tag.experience-tag'
+    >;
+    category: Attribute.Enumeration<['basic', 'essentials', 'signature']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::experience.experience',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiExperienceDescriptionExperienceDescription
+  extends Schema.CollectionType {
+  collectionName: 'experience_descriptions';
+  info: {
+    singularName: 'experience-description';
+    pluralName: 'experience-descriptions';
+    displayName: 'ExperienceDescription';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    desciption: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    experience: Attribute.Relation<
+      'api::experience-description.experience-description',
+      'oneToOne',
+      'api::experience.experience'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::experience-description.experience-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::experience-description.experience-description',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::experience-description.experience-description',
+      'oneToMany',
+      'api::experience-description.experience-description'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiExperienceTagExperienceTag extends Schema.CollectionType {
+  collectionName: 'experience_tags';
+  info: {
+    singularName: 'experience-tag';
+    pluralName: 'experience-tags';
+    displayName: 'ExperienceTag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slug: Attribute.String;
+    experience: Attribute.Relation<
+      'api::experience-tag.experience-tag',
+      'manyToOne',
+      'api::experience.experience'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::experience-tag.experience-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::experience-tag.experience-tag',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFaqFaq extends Schema.CollectionType {
   collectionName: 'faqs';
   info: {
@@ -2503,6 +2647,9 @@ declare module '@strapi/types' {
       'api::city.city': ApiCityCity;
       'api::document.document': ApiDocumentDocument;
       'api::event.event': ApiEventEvent;
+      'api::experience.experience': ApiExperienceExperience;
+      'api::experience-description.experience-description': ApiExperienceDescriptionExperienceDescription;
+      'api::experience-tag.experience-tag': ApiExperienceTagExperienceTag;
       'api::faq.faq': ApiFaqFaq;
       'api::location.location': ApiLocationLocation;
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
