@@ -65,6 +65,10 @@
         "essentials",
         "signature"
       ]
+    },
+    "slug": {
+      "type": "string",
+      "required": true
     }
   }
 }

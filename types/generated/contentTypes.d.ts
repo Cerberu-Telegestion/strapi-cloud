@@ -1238,6 +1238,7 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
       'api::experience-tag.experience-tag'
     >;
     category: Attribute.Enumeration<['basic', 'essentials', 'signature']>;
+    slug: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
