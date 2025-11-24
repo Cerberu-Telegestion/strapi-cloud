@@ -32,7 +32,7 @@
         "images"
       ]
     },
-    "latitute": {
+    "latitude": {
       "type": "float"
     },
     "longitude": {

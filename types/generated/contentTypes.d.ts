@@ -1222,7 +1222,7 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
     name: Attribute.String & Attribute.Required;
     brand: Attribute.Media & Attribute.Required;
     images: Attribute.Media;
-    latitute: Attribute.Float;
+    latitude: Attribute.Float;
     longitude: Attribute.Float;
     web: Attribute.String;
     address: Attribute.String;
@@ -1287,7 +1287,7 @@ export interface ApiExperienceDescriptionExperienceDescription
           localized: true;
         };
       }>;
-    desciption: Attribute.Text &
+    description: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
