@@ -1244,6 +1244,7 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
       'manyToMany',
       'api::location.location'
     >;
+    headerImage: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1299,6 +1300,12 @@ export interface ApiExperienceDescriptionExperienceDescription
       'oneToOne',
       'api::experience.experience'
     >;
+    callToAction: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
