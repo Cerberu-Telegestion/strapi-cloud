@@ -819,10 +819,16 @@ export interface ApiExperienceDescriptionExperienceDescription
     };
   };
   attributes: {
+    callToAction: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    desciption: Schema.Attribute.Text &
+    description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -910,8 +916,9 @@ export interface ApiExperienceExperience extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::experience-tag.experience-tag'
     >;
+    headerImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     images: Schema.Attribute.Media<'images', true>;
-    latitute: Schema.Attribute.Float;
+    latitude: Schema.Attribute.Float;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -25,7 +25,7 @@
       "type": "string",
       "required": true
     },
-    "desciption": {
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -38,6 +38,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::experience.experience"
+    },
+    "callToAction": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }
