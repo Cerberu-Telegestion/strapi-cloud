@@ -8,5 +8,11 @@ module.exports = [
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
-  'strapi::public',
+  {
+    name: 'strapi::public',
+    config: {
+      maxAge: 31536000,   // 1 year
+      immutable: true,
+    },
+  },
 ];
