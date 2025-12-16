@@ -801,6 +801,136 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiExperienceDescriptionExperienceDescription
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'experience_descriptions';
+  info: {
+    description: '';
+    displayName: 'ExperienceDescription';
+    pluralName: 'experience-descriptions';
+    singularName: 'experience-description';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    desciption: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    experience: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::experience.experience'
+    >;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::experience-description.experience-description'
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiExperienceTagExperienceTag
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'experience_tags';
+  info: {
+    displayName: 'ExperienceTag';
+    pluralName: 'experience-tags';
+    singularName: 'experience-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    experience: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::experience.experience'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::experience-tag.experience-tag'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiExperienceExperience extends Struct.CollectionTypeSchema {
+  collectionName: 'experiences';
+  info: {
+    description: '';
+    displayName: 'Experience';
+    pluralName: 'experiences';
+    singularName: 'experience';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    brand: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    category: Schema.Attribute.Enumeration<
+      ['basic', 'essentials', 'signature']
+    >;
+    city: Schema.Attribute.Relation<'oneToOne', 'api::city.city'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    experience_tags: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::experience-tag.experience-tag'
+    >;
+    images: Schema.Attribute.Media<'images', true>;
+    latitute: Schema.Attribute.Float;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::experience.experience'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.Relation<'manyToMany', 'api::location.location'>;
+    longitude: Schema.Attribute.Float;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    web: Schema.Attribute.String;
+  };
+}
+
 export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   collectionName: 'faqs';
   info: {
@@ -1034,6 +1164,10 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    experience: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::experience.experience'
+    >;
     externalId: Schema.Attribute.BigInteger &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1095,6 +1229,12 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
         };
       }>;
     metaDescription: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaPixel: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2481,6 +2621,9 @@ declare module '@strapi/strapi' {
       'api::city.city': ApiCityCity;
       'api::document.document': ApiDocumentDocument;
       'api::event.event': ApiEventEvent;
+      'api::experience-description.experience-description': ApiExperienceDescriptionExperienceDescription;
+      'api::experience-tag.experience-tag': ApiExperienceTagExperienceTag;
+      'api::experience.experience': ApiExperienceExperience;
       'api::faq.faq': ApiFaqFaq;
       'api::location-access-information.location-access-information': ApiLocationAccessInformationLocationAccessInformation;
       'api::location-rules-document-type.location-rules-document-type': ApiLocationRulesDocumentTypeLocationRulesDocumentType;

@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experience_tags",
+  "info": {
+    "singularName": "experience-tag",
+    "pluralName": "experience-tags",
+    "displayName": "ExperienceTag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::experience.experience",
+      "inversedBy": "experience_tags"
+    }
+  }
+}

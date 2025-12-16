@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experience_descriptions",
+  "info": {
+    "singularName": "experience-description",
+    "pluralName": "experience-descriptions",
+    "displayName": "ExperienceDescription",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "desciption": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "experience": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::experience.experience"
+    }
+  }
+}
