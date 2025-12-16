@@ -8,11 +8,14 @@ module.exports = [
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
-  'strapi::public',
+  {
+    name: 'strapi::public',
+    config: {
+      maxAge: 31536000, // 1 año en segundos
+    },
+  },
   {
     name: 'global::cache-headers',
-    config: {
-      enabled: true,
-    },
+    resolve: './src/middlewares/cache-headers',
   },
 ];
