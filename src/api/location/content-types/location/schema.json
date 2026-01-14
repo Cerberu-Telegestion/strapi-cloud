@@ -220,6 +220,11 @@
       "relation": "manyToMany",
       "target": "api::experience.experience",
       "mappedBy": "location"
+    },
+    "promo_video": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::video.video"
     }
   }
 }

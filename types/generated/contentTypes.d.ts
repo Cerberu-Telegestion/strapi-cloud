@@ -1569,6 +1569,11 @@ export interface ApiLocationLocation extends Schema.CollectionType {
       'manyToMany',
       'api::experience.experience'
     >;
+    promo_video: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'api::video.video'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2641,6 +2646,38 @@ export interface ApiTestimonialTestimonial extends Schema.CollectionType {
   };
 }
 
+export interface ApiVideoVideo extends Schema.CollectionType {
+  collectionName: 'videos';
+  info: {
+    singularName: 'video';
+    pluralName: 'videos';
+    displayName: 'Video';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::video.video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::video.video',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -2684,6 +2721,7 @@ declare module '@strapi/types' {
       'api::region.region': ApiRegionRegion;
       'api::report.report': ApiReportReport;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::video.video': ApiVideoVideo;
     }
   }
 }
