@@ -935,6 +935,7 @@ export interface ApiExperienceExperience extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     web: Schema.Attribute.String;
+    whatsapp: Schema.Attribute.String;
   };
 }
 
@@ -1289,6 +1290,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    promoVideo: Schema.Attribute.Relation<'oneToOne', 'api::video.video'>;
     publishedAt: Schema.Attribute.DateTime;
     rooms_description: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
@@ -2136,6 +2138,32 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
+  collectionName: 'videos';
+  info: {
+    displayName: 'Video';
+    pluralName: 'videos';
+    singularName: 'video';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::video.video'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -2671,6 +2699,7 @@ declare module '@strapi/strapi' {
       'api::region.region': ApiRegionRegion;
       'api::report.report': ApiReportReport;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
+      'api::video.video': ApiVideoVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

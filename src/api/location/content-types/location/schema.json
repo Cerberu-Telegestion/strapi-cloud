@@ -17,28 +17,28 @@
   },
   "attributes": {
     "name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "externalId": {
+      "type": "biginteger",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "biginteger"
+      }
     },
     "description": {
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "richtext"
+      }
     },
     "city": {
       "type": "relation",
@@ -51,15 +51,20 @@
       "target": "api::location-rules-document-type.location-rules-document-type"
     },
     "rooms_description": {
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "richtext"
+      }
     },
     "images": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "multiple": true,
       "required": false,
       "allowedTypes": [
@@ -67,62 +72,62 @@
         "files",
         "videos",
         "audios"
-      ],
+      ]
+    },
+    "directbookId": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
     },
-    "directbookId": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
     "slug": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "string"
+      }
     },
     "features": {
       "type": "component",
-      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "component": "shared.location-feature"
+      "component": "shared.location-feature",
+      "repeatable": true
     },
     "video": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "multiple": false,
       "required": false,
       "allowedTypes": [
         "videos"
-      ],
+      ]
+    },
+    "order": {
+      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
     },
-    "order": {
+    "logo": {
+      "type": "media",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "integer"
-    },
-    "logo": {
-      "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
@@ -130,96 +135,96 @@
         "files",
         "videos",
         "audios"
-      ],
+      ]
+    },
+    "extraInfo": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "metaTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "metaDescription": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "googleSiteVerificationMetaTag": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
     },
-    "extraInfo": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext"
-    },
-    "metaTitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "metaDescription": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "googleSiteVerificationMetaTag": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string"
-    },
     "Category": {
+      "type": "enumeration",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "enumeration",
+      "default": "basic",
       "enum": [
         "basic",
         "essentials",
         "signature"
-      ],
-      "default": "basic"
+      ]
     },
     "googleAnalyticsId": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "string"
+      }
     },
     "googlePlaceId": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "string"
+      }
     },
     "siteminderUuid": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "type": "string"
+      }
     },
     "metaPixel": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string"
+      }
     },
     "experience": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::experience.experience",
       "mappedBy": "location"
+    },
+    "promoVideo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::video.video"
     }
   }
 }
