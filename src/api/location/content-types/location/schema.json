@@ -225,6 +225,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::video.video"
+    },
+    "disabledReservations": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "default": false
     }
   }
 }
