@@ -1149,6 +1149,12 @@ export interface ApiLocationAccessInformationLocationAccessInformation
           localized: false;
         };
       }>;
+    parking: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     room: Schema.Attribute.Media<'images'> &
       Schema.Attribute.SetPluginOptions<{
