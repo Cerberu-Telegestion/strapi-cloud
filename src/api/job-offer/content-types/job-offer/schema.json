@@ -10,84 +10,40 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "required": true
     },
     "description": {
       "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "required": true
     },
     "cities": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::city.city",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "target": "api::city.city"
     },
     "remote": {
       "type": "boolean",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "default": false
     },
     "numberOfPositions": {
       "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "required": true,
       "min": 1
     },
     "publishedFrom": {
       "type": "date",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "required": true
     },
     "publishedUntil": {
       "type": "date",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "required": true
     },
     "department": {
       "type": "enumeration",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "required": true,
       "enum": [
         "cleaning",
