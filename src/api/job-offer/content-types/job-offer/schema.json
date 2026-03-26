@@ -55,6 +55,9 @@
         "hospitality",
         "development"
       ]
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

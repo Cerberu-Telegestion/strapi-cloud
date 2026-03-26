@@ -1036,6 +1036,7 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
     publishedFrom: Schema.Attribute.Date & Schema.Attribute.Required;
     publishedUntil: Schema.Attribute.Date & Schema.Attribute.Required;
     remote: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    slug: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
