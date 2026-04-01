@@ -4,7 +4,7 @@ module.exports = (config, { strapi }) => {
 
     // Agregar headers de caché para imágenes
     if (ctx.url.match(/\.(jpg|jpeg|png|gif|ico|svg|webp)$/i)) {
-      ctx.set('Cache-Control', 'public, max-age=31536000, immutable');
+      ctx.set('Cache-Control', 'public, max-age=31536000000, immutable');
     }
   };
 };
