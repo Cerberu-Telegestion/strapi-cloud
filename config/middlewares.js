@@ -11,7 +11,7 @@ module.exports = [
   {
     name: 'strapi::public',
     config: {
-      maxAge: 31536000, // 1 año en segundos
+      maxAge: 31536000000, // 1 año en segundos
     },
   },
   {
