@@ -2163,18 +2163,16 @@ export interface ApiReportReport extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.String;
-    downloadLink: Schema.Attribute.Text;
     externalId: Schema.Attribute.String;
-    image: Schema.Attribute.String;
+    link: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::report.report'
     > &
       Schema.Attribute.Private;
-    pdf: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    reportType: Schema.Attribute.String;
+    type: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

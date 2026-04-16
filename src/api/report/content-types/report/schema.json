@@ -12,13 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "pdf": {
-      "type": "string"
-    },
-    "image": {
-      "type": "string"
-    },
-    "reportType": {
+    "type": {
       "type": "string"
     },
     "externalId": {
@@ -27,7 +21,7 @@
     "date": {
       "type": "string"
     },
-    "downloadLink": {
+    "link": {
       "type": "text"
     }
   }
