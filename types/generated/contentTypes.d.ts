@@ -1014,6 +1014,7 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
         'maintenance',
         'hospitality',
         'development',
+        'food-beverage',
       ]
     > &
       Schema.Attribute.Required;
