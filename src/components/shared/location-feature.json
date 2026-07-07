@@ -28,6 +28,10 @@
     "center": {
       "type": "boolean",
       "default": true
+    },
+    "ownParking": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

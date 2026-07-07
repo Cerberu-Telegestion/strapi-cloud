@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_long_stay_zone_types",
+  "info": {
+    "displayName": "longStayZoneType"
+  },
+  "options": {},
+  "attributes": {
+    "coliving": {
+      "type": "boolean",
+      "default": false
+    },
+    "apartment": {
+      "type": "boolean",
+      "default": false
+    },
+    "residence": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

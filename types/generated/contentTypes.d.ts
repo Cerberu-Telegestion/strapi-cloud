@@ -1833,6 +1833,12 @@ export interface ApiLongStaysZoneLongStaysZone
         };
       }> &
       Schema.Attribute.DefaultTo<true>;
+    type: Schema.Attribute.Component<'shared.long-stay-zone-type', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -8,10 +8,23 @@ export interface SharedLocationFeature extends Struct.ComponentSchema {
   attributes: {
     breakfast: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     center: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    ownParking: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     parking: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     petfriendly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     quite: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     wifi: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+  };
+}
+
+export interface SharedLongStayZoneType extends Struct.ComponentSchema {
+  collectionName: 'components_shared_long_stay_zone_types';
+  info: {
+    displayName: 'longStayZoneType';
+  };
+  attributes: {
+    apartment: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    coliving: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    residence: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -42,6 +55,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.location-feature': SharedLocationFeature;
+      'shared.long-stay-zone-type': SharedLongStayZoneType;
       'shared.media': SharedMedia;
       'shared.rich-text': SharedRichText;
     }
