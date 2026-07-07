@@ -281,6 +281,17 @@
       },
       "component": "shared.long-stay-zone-type",
       "repeatable": false
+    },
+    "numSpaces": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": 1,
+      "min": 1
     }
   }
 }
