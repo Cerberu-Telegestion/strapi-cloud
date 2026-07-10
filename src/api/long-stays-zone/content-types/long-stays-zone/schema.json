@@ -92,6 +92,22 @@
         }
       }
     },
+    "euroPerMonthHalfBoard": {
+      "type": "float",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "euroPerMonthFullBoard": {
+      "type": "float",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "flexibleCancellation": {
       "type": "boolean",
       "pluginOptions": {

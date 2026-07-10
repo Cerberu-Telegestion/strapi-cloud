@@ -1718,6 +1718,18 @@ export interface ApiLongStaysZoneLongStaysZone
           localized: false;
         };
       }>;
+    euroPerMonthFullBoard: Schema.Attribute.Float &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    euroPerMonthHalfBoard: Schema.Attribute.Float &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     exterior: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
