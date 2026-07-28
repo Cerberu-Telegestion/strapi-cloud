@@ -1962,6 +1962,70 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiParkingParking extends Struct.CollectionTypeSchema {
+  collectionName: 'parkings';
+  info: {
+    displayName: 'Parking';
+    pluralName: 'parkings';
+    singularName: 'parking';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    city: Schema.Attribute.Relation<'oneToOne', 'api::city.city'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    latitude: Schema.Attribute.Float &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::parking.parking'
+    >;
+    location: Schema.Attribute.Relation<'oneToOne', 'api::location.location'>;
+    longitude: Schema.Attribute.Float &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+  };
+}
+
 export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
   collectionName: 'podcasts';
   info: {
@@ -2800,6 +2864,7 @@ declare module '@strapi/strapi' {
       'api::long-stays-zone.long-stays-zone': ApiLongStaysZoneLongStaysZone;
       'api::neighborhood.neighborhood': ApiNeighborhoodNeighborhood;
       'api::page.page': ApiPagePage;
+      'api::parking.parking': ApiParkingParking;
       'api::podcast.podcast': ApiPodcastPodcast;
       'api::poi.poi': ApiPoiPoi;
       'api::press-release.press-release': ApiPressReleasePressRelease;
